@@ -2,7 +2,7 @@ let running = false;
 const pcoptions=["rock","paper","scissor","lizard","spoc"];
 let iconop = ["far fa-hand-rock","far fa-hand-paper","far fa-hand-scissors","far fa-hand-lizard","far fa-hand-spock"];
 let sel;
-let defeatedBy = {
+let defeats = {
     rock : ['scissor', 'lizard'],
     paper : ['rock', 'spoc'],
     scissor : ['paper', 'lizard'],
@@ -76,7 +76,6 @@ function continuegame(){
         s = parseInt(s);
         $('#pcscore').text(s+1);
     }
-    console.log(defeatedBy[pcoptions[sel]]);
     running= false;
 }
 
@@ -84,7 +83,7 @@ function selectwinner(pl,pc){
     if(pl==pc){
         return 0;
     }
-    else if($.inArray(pcoptions[pc], defeatedBy[pcoptions[pl]]) == -1){
+    else if($.inArray(pcoptions[pc], defeats[pcoptions[pl]]) != -1){
         return 1;
     }
     else{
@@ -99,7 +98,7 @@ function getRandomInt(max){
 function showRules(){
     new Noty({
         theme: "relax",
-        text: "Rock is defeated by Scissors & Lizard.<br>Paper is defeated by Rock & Spock.<br>Scissors is defeated by Paper & Lizard.<br>Lizard is defeated by Paper & Spock.<br>Spock is defeated by Scissors & Rock.",
+        text: "As Sheldon explains, Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors, scissors decapitates lizard, lizard eats paper, paper disproves Spock, Spock vaporizes rock, and as it always has, rock crushes scissors.",
         type: "alert",
         layout: "topRight",
         timeout: 10000
