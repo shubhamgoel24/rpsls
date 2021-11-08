@@ -59,7 +59,7 @@ div{
 
 .select{
     position: absolute;
-    bottom: 12vh;
+    bottom: 18vh;
 }
 
 #rules{
@@ -68,7 +68,7 @@ div{
     color: red;
     border: red solid 1px;
     position: absolute;
-    bottom: 5px;
+    bottom: 6vh;
     left: 0;
     right: 0;
     width: fit-content;
